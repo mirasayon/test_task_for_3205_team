@@ -1,0 +1,36 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"main": "dist/app/server.js",
+	"type": "module",
+	"scripts": {
+		"test": "dotenvx run -f .env.test --quiet -- node ./__tests__/main.js",
+		"dev": "dotenvx run -f .env.development --quiet  -- nodemon ./dist/app/server.js",
+		"ts:watch": "tsc -p ./tsconfig.json --watch",
+		"ts:build": "tsc -p ./tsconfig.json",
+		"start": "dotenvx run -f .env.production --quiet -- node ./dist/app/server.js",
+		"start:test": "dotenvx run -f .env.test --quiet -- node ./dist/app/server.js",
+		"coldstart": "npm install && npm run ts:build && npm run start"
+	},
+	"author": "mirasayon",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"@dotenvx/dotenvx": "^1.14.1",
+		"@types/compression": "^1.7.5",
+		"@types/express": "^4.17.21",
+		"chalk": "^5.3.0",
+		"compression": "^1.7.4",
+		"cors": "^2.8.5",
+		"express": "^4.21.0",
+		"helmet": "^7.1.0",
+		"morgan": "^1.10.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.0",
+		"@types/cors": "^2.8.17",
+		"@types/morgan": "^1.9.9",
+		"nodemon": "^3.1.4",
+		"typescript": "^5.6.2"
+	}
+}
